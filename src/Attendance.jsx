@@ -43,7 +43,8 @@ const attendanceData = [
   { key: '3', employeeId: 'E003', name: 'test', email: '', phoneNumber: '0123546424', checkInTime: '-', checkOutTime: '-', status: 'On Leave' },
 ];
 
-const Attendance = () => (
+const Attendance = () => {
+  return(
   <Layout style={{ minHeight: '100vh' }}>
     <Sider theme="light" width={200}>
       <Menu mode="inline" defaultSelectedKeys={['1']} items={menuItems} />
@@ -69,6 +70,7 @@ const Attendance = () => (
       </Content>
     </Layout>
   </Layout>
-);
+  );
+};  
 
 export default Attendance;
