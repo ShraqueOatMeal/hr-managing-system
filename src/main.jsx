@@ -10,12 +10,22 @@ import EmployeeDetails from './EmployeeDetails.jsx'
 import OfferLetter from './OfferLetter.jsx';
 import EmployeeSurvey from './EmployeeSurvey.jsx';
 import PerformanceTracker from './PerformanceTracker.jsx'
+import Attendance from './Attendance.jsx'
+import PayrollManagement from './PayrollManagement.jsx'
 import './style.css';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <div>Hello World</div>,
+  },
+  {
+    path: "/Attendance",
+    element: <Attendance />,
+  },
+  {
+    path: "/PayrollManagement",
+    element: <PayrollManagement />,
   },
   {
     path: "/EmployeeDetails",
