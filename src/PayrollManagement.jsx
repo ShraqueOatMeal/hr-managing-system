@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { Layout, Typography, Button, Menu, Table } from 'antd';
 import {
   LeftOutlined,
@@ -61,44 +62,58 @@ const payrollData = [
   },
 ];
 
-const PayrollManagement = ({ onEdit }) => (
-  <Layout style={{ minHeight: '100vh' }}>
-    <Sider theme="light" width={200}>
-      <Menu mode="inline" defaultSelectedKeys={['2']} items={menuItems} />
-    </Sider>
-    <Layout>
-      <Header
-        style={{
-          background: '#fff',
-          padding: '0 16px',
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        <Button icon={<LeftOutlined />} type="text" style={{ marginRight: 8 }} />
-        <div style={{ flex: 1, textAlign: 'center' }}>
-          <Title level={4} style={{ margin: 0 }}>
-            Payroll Management
-          </Title>
-        </div>
-      </Header>
-      <Content style={{ margin: '6px', padding: 24, background: '#fff' }}>
-        <Table
-          columns={payrollColumns}
-          dataSource={payrollData}
-          pagination={false}
-          size="small"
-          style={{ marginBottom: '16px' }}
-          scroll={{ x: true }}
-        />
-        <div style={{ textAlign: 'right' }}>
-          <Button size="small" onClick={onEdit}>
-            Edit
-          </Button>
-        </div>
-      </Content>
+const PayrollManagement = () => {
+
+  const [editable, setEditable] = useState(false);
+
+  return(
+    <Layout style={{ minHeight: '100vh' }}>
+      <Sider theme="light" width={200}>
+        <Menu mode="inline" defaultSelectedKeys={['2']} items={menuItems} />
+      </Sider>
+      <Layout>
+        <Header
+          style={{
+            background: '#fff',
+            padding: '0 16px',
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <Button icon={<LeftOutlined />} type="text" style={{ marginRight: 8 }} />
+          <div style={{ flex: 1, textAlign: 'center' }}>
+            <Title level={4} style={{ margin: 0 }}>
+              Payroll Management
+            </Title>
+          </div>
+        </Header>
+        <Content style={{ margin: '6px', padding: 24, background: '#fff' }}>
+          <Table
+            columns={payrollColumns}
+            dataSource={payrollData}
+            pagination={false}
+            size="small"
+            style={{ marginBottom: '16px' }}
+            scroll={{ x: true }}
+          />
+          <div style={{ textAlign: 'right' }}>
+            {!editable ?
+              (
+                <Button size="small" onClick={() => setEditable(true)}>
+                  Edit
+                </Button>
+              ) :
+              (
+                <Button size="small" onClick={() => setEditable(false)}>
+                  Save
+                </Button>
+              )
+            }
+          </div>
+        </Content>
+      </Layout>
     </Layout>
-  </Layout>
-);
+  )
+};
 
 export default PayrollManagement;
