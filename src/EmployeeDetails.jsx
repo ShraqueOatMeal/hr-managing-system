@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { Layout, Card, Row, Col, Button, Typography, Menu, Flex, Space, Image, Input } from 'antd';
 import { LeftOutlined, PictureOutlined, ScheduleOutlined, MoneyCollectOutlined, FormOutlined, EditOutlined, LineChartOutlined, UserAddOutlined } from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router-dom';
@@ -27,6 +28,7 @@ const items = [
 
 const EmployeeDetails = () => {
   const navigate = useNavigate();
+  const [editable, setEditable] = useState(false)
 
   return (
     <Layout>
@@ -49,28 +51,35 @@ const EmployeeDetails = () => {
             <Flex>
               <Col span={12}>
                 <Space direction="vertical" style={{ marginTop: 16 }}>
-                  <Text strong>Employee ID:</Text>
-                  <Text strong>Name:</Text>
-                  <Text strong>Email Address:</Text>
-                  <Text strong>Phone Number:</Text>
-                  <Text strong>Salary Status:</Text>
-                  <Text strong>Task Assigned:</Text>
-                  <Text strong>Task Completed:</Text>
+                  <Text strong>Employee ID: <Input disabled={editable ? false : true} /></Text>
+                  <Text strong>Name:<Input disabled={editable ? false : true} /></Text>
+                  <Text strong>Email Address:<Input disabled={editable ? false : true} /></Text>
+                  <Text strong>Phone Number:<Input disabled={editable ? false : true} /></Text>
+                  <Text strong>Salary Status:<Input disabled={editable ? false : true} /></Text>
+                  <Text strong>Task Assigned:<Input disabled={editable ? false : true} /></Text>
+                  <Text strong>Task Completed:<Input disabled={editable ? false : true} /></Text>
                 </Space>
               </Col>
               <Col span={12}>
                 <Space direction="vertical">
-                  <Text strong>Check In Time:</Text>
-                  <Text strong>Check Out Time:</Text>
-                  <Text strong>Status:</Text>
-                  <Text strong>Reason:</Text>
+                  <Text strong>Check In Time:<Input disabled={editable ? false : true} /></Text>
+                  <Text strong>Check Out Time:<Input disabled={editable ? false : true} /></Text>
+                  <Text strong>Status:<Input disabled={editable ? false : true} /></Text>
+                  <Text strong>Reason:<Input disabled={editable ? false : true} /></Text>
                 </Space>
               </Col>
             </Flex>
             <Flex justify="flex-end" style={{ marginTop: 16 }}>
               <Space>
-                <Button type="primary">Edit Employee Details</Button>
-                <Button danger>Delete Employee</Button>
+                {!editable ? (
+                  <>
+                    <Button type="primary" onClick={() => setEditable(true)} >Edit Employee Details</Button>
+                    <Button danger>Delete Employee</Button>
+                  </>
+                ) : 
+                (
+                  <Button type="primary" onClick={() => setEditable(false)} >Save Details</Button>
+                )}
               </Space>
             </Flex>
           </Card>
