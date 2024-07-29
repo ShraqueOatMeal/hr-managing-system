@@ -7,6 +7,9 @@ import {
 import App from './App.jsx'
 import { ConfigProvider } from 'antd'
 import EmployeeDetails from './EmployeeDetails.jsx'
+import OfferLetter from './OfferLetter.jsx';
+import EmployeeSurvey from './EmployeeSurvey.jsx';
+import PerformanceTracker from './PerformanceTracker.jsx'
 import './style.css';
 
 const router = createBrowserRouter([
@@ -17,6 +20,18 @@ const router = createBrowserRouter([
   {
     path: "/EmployeeDetails",
     element: <EmployeeDetails />,
+  },
+  {
+    path: "/OfferLetter",
+    element: <OfferLetter />,
+  },
+  {
+    path: "/EmployeeSurvey",
+    element: <EmployeeSurvey />,
+  },
+  {
+    path: "/PerformanceTracker",
+    element: <PerformanceTracker />,
   },
 ])
 
