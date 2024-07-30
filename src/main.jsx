@@ -12,15 +12,12 @@ import EmployeeSurvey from './EmployeeSurvey.jsx';
 import PerformanceTracker from './PerformanceTracker.jsx'
 import Attendance from './Attendance.jsx'
 import PayrollManagement from './PayrollManagement.jsx'
+import AddEmployee from './AddEmployee.jsx'
 import './style.css';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello World</div>,
-  },
-  {
-    path: "/Attendance",
     element: <Attendance />,
   },
   {
@@ -42,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: "/PerformanceTracker",
     element: <PerformanceTracker />,
+  },
+  {
+    path: "/AddEmployee",
+    element: <AddEmployee />,
   },
 ])
 
